@@ -1,4 +1,4 @@
-# Marta's Voice — a Claude Skill for my own writing
+# Styleguide as a skill — a Claude Skill for my own writing
 
 **Goal:** Build a Claude Skill — a plain-text file that teaches the AI my voice — so it can write pottery-shop content that sounds like me.
 
