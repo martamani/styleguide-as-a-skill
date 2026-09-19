@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:ital,wght@0,400..700;1,400&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #fbfaf8; }
+  * { box-sizing: border-box; }
+  a { color: #4c5f8f; text-decoration: none; border-bottom: 1px solid #c3cbdd; }
+  a:hover { color: #16161a; border-bottom-color: #16161a; }
+</style>
+</head>
+<body>
+
+
+
+<div style="background:#fbfaf8;color:#16161a;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased">
+<div style="max-width:1120px;margin:0 auto;padding:88px 56px 120px">
+
+<header style="display:grid;grid-template-columns:1fr 300px;gap:56px;align-items:end;padding-bottom:28px;border-bottom:1px solid #16161a">
+  <div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8e8e94;margin-bottom:22px">Case study · Editorial AI systems</div>
+    <h1 style="margin:0;font-size:52px;line-height:1.04;letter-spacing:-0.025em;font-weight:600;max-width:16em;text-wrap:balance">An AI content pipeline, built end to end</h1>
+    <p style="margin:20px 0 0;font-size:19px;line-height:1.45;color:#5c5c62;max-width:34em;text-wrap:pretty">Fourteen steps from source text to published content to automated inbound triage — with the voice governed every time text is generated.</p>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;line-height:1.5;color:#5c5c62;padding-bottom:6px">
+    <div style="display:flex;gap:10px"><span style="color:#8e8e94;min-width:52px">FOR</span><span>AI Content Pipeline</span></div>
+    <div style="display:flex;gap:10px"><span style="color: rgb(142, 142, 148); min-width: 52px;">BY</span><span>Marta Romani</span></div>
+    <div style="display:flex;gap:10px"><span style="color:#8e8e94;min-width:52px">SITE</span><a href="https://martamani.github.io/pottery-ai-content-pipeline/">martamani.github.io</a></div>
+    <div style="display:flex;gap:10px"><span style="color:#8e8e94;min-width:52px">REPO</span><a href="https://github.com/martamani/pottery-ai-content-pipeline">pottery-ai-content-pipeline</a></div>
+  </div>
+</header>
+
+<section style="display:grid;grid-template-columns:200px 1fr;gap:56px;padding:44px 0 8px;border-bottom:1px solid #e4e2dd">
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8e8e94;padding-top:5px">Premise</div>
+  <div style="display:flex;flex-direction:column;gap:16px;padding-bottom:40px">
+    <p style="margin:0;font-size:17px;line-height:1.6;max-width:44em;text-wrap:pretty">I have been learning how to design systems that automate editorial processes — styleguide creation, LLM evaluation, lead-capture automation. I am now putting the pieces together into an AI editorial system.</p>
+    <p style="margin:0;font-size:17px;line-height:1.6;color:#5c5c62;max-width:44em;text-wrap:pretty">The subject is my pottery studio. I have written the source text.&nbsp;</p>
+  </div>
+</section>
+
+<section style="padding:56px 0 0">
+  <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:8px">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8e8e94">01 / System</div>
+  </div>
+  <h2 style="margin:0 0 6px;font-size:30px;line-height:1.15;letter-spacing:-0.02em;font-weight:600">The architecture</h2>
+  <p style="margin:0 0 40px;font-size:16px;color:#5c5c62;max-width:40em;text-wrap:pretty">Five stages, plus one governance layer. Editorial guidelines are written once and referenced by every text generation, not re-prompted every time time.</p>
+
+  <div style="background:#ffffff;border:1px solid #e4e2dd;padding:44px 40px 40px">
+    <div style="display:grid;grid-template-columns:1fr 22px 1fr 22px 1fr 22px 1fr 22px 1fr;align-items:stretch;gap:0">
+
+      <div style="border-top:2px solid #16161a;padding-top:14px;display:flex;flex-direction:column;gap:9px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.12em;color:#8e8e94">STAGE 01</div>
+        <div style="font-size:15px;font-weight:600;letter-spacing:-0.01em">Source</div>
+        <div style="font-size:13px;line-height:1.45;color:#5c5c62">Human-written text and a static site — the ground truth.</div>
+        <div style="margin-top:auto;padding-top:12px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8e8e94">GitHub Pages</div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#b4b2ad">→</div>
+
+      <div style="border-top:2px solid #16161a;padding-top:14px;display:flex;flex-direction:column;gap:9px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.12em;color:#8e8e94">STAGE 02</div>
+        <div style="font-size:15px;font-weight:600;letter-spacing:-0.01em">Baseline</div>
+        <div style="font-size:13px;line-height:1.45;color:#5c5c62">Measure visibility against one competitor craftsman. Benchmark only, never an input to drafts.</div>
+        <div style="margin-top:auto;padding-top:12px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8e8e94">AirOps audit</div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#b4b2ad">→</div>
+
+      <div style="border-top:2px solid #4c5f8f;padding-top:14px;display:flex;flex-direction:column;gap:9px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.12em;color:#4c5f8f">STAGE 03</div>
+        <div style="font-size:15px;font-weight:600;letter-spacing:-0.01em">Generate, grounded</div>
+        <div style="font-size:13px;line-height:1.45;color:#5c5c62">Drafts are grounded in the text I wrote. Machine-readable schema on top.</div>
+        <div style="margin-top:auto;padding-top:12px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8e8e94">Quill · JSON-LD</div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#b4b2ad">→</div>
+
+      <div style="border-top:2px solid #4c5f8f;padding-top:14px;display:flex;flex-direction:column;gap:9px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.12em;color:#4c5f8f">STAGE 04</div>
+        <div style="font-size:15px;font-weight:600;letter-spacing:-0.01em">Distribute</div>
+        <div style="font-size:13px;line-height:1.45;color:#5c5c62">One source of content, repurposed into several formats. A human edit pass before anything ships.</div>
+        <div style="margin-top:auto;padding-top:12px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8e8e94">AirOps · human QA</div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#b4b2ad">→</div>
+
+      <div style="border-top:2px solid #4c5f8f;padding-top:14px;display:flex;flex-direction:column;gap:9px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.12em;color:#4c5f8f">STAGE 05</div>
+        <div style="font-size:15px;font-weight:600;letter-spacing:-0.01em">Orchestrate</div>
+        <div style="font-size:13px;line-height:1.45;color:#5c5c62">Inbound messages captured, routed by length, summarised and classified as leads/not leads, sent weekly to my email drafts folder.</div>
+        <div style="margin-top:auto;padding-top:12px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8e8e94">Tally · Make.com</div>
+      </div>
+
+      <div style="grid-column:1 / 4;display:flex;justify-content:center;padding-top:20px"></div>
+      <div style="grid-column:5 / 10;display:flex;justify-content:space-around;padding-top:20px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#4c5f8f">
+        <span>↑</span><span>↑</span><span>↑</span>
+      </div>
+
+      <div style="grid-column:5 / 10;background:#f3f4f8;border:1px solid #c3cbdd;padding:16px 20px;display:flex;align-items:center;gap:20px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.12em;color:#4c5f8f;white-space:nowrap">GOVERNANCE LAYER</div>
+        <div style="font-size:13.5px;line-height:1.45;color:#3c3c42">AirOps Brand kit — voice, tone and six written rules, stored once and used every time text is generated.</div>
+      </div>
+      <div style="grid-column:1 / 4;padding-top:0"></div>
+
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#e4e2dd;border:1px solid #e4e2dd;margin-top:32px">
+    <div style="background:#fbfaf8;padding:24px 26px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.12em;color:#8e8e94;margin-bottom:10px">DESIGN PRINCIPLE 01</div>
+      <div style="font-size:15.5px;font-weight:600;margin-bottom:7px;letter-spacing:-0.01em">Ground, don't trust</div>
+      <div style="font-size:13.5px;line-height:1.5;color:#5c5c62;text-wrap:pretty">Generation reads from the live site. When the site was still offline, the agent flagged it. It did not invent an FAQ.</div>
+    </div>
+    <div style="background:#fbfaf8;padding:24px 26px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.12em;color:#8e8e94;margin-bottom:10px">DESIGN PRINCIPLE 02</div>
+      <div style="font-size:15.5px;font-weight:600;margin-bottom:7px;letter-spacing:-0.01em">Set voice once</div>
+      <div style="font-size:13.5px;line-height:1.5;color:#5c5c62;text-wrap:pretty">The editorial guidelines live in the brand kit, not in a prompt. They are used every time text is generated.</div>
+    </div>
+    <div style="background:#fbfaf8;padding:24px 26px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.12em;color:#8e8e94;margin-bottom:10px">DESIGN PRINCIPLE 03</div>
+      <div style="font-size:15.5px;font-weight:600;margin-bottom:7px;letter-spacing:-0.01em">Design for free tier</div>
+      <div style="font-size:13.5px;line-height:1.5;color:#5c5c62;text-wrap:pretty">When a platform limit blocked the API call, the logic was rebuilt on a free tier with Google Sheets.</div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:80px 0 0">
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8e8e94;margin-bottom:8px">02 / Evidence</div>
+  <h2 style="margin:0 0 6px;font-size:30px;line-height:1.15;letter-spacing:-0.02em;font-weight:600">Fourteen steps</h2>
+  <p style="margin:0 0 8px;font-size:16px;color:#5c5c62;max-width:40em;text-wrap:pretty">All built.</p>
+
+  <div style="margin-top:36px;display:flex;flex-direction:column;gap:0">
+
+    <div style="display:grid;grid-template-columns:200px 1fr;gap:56px;padding:32px 0;border-top:1px solid #16161a">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.12em;color:#8e8e94;margin-bottom:6px">STAGE 01</div>
+        <div style="font-size:17px;font-weight:600;letter-spacing:-0.015em">Source</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:22px;max-width:46em">
+        <div style="display:grid;grid-template-columns:34px 1fr;gap:18px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#b4b2ad;padding-top:2px">01</div>
+          <div>
+            <div style="font-size:15.5px;font-weight:600;margin-bottom:4px">Wrote the source text</div>
+            <div style="font-size:14px;line-height:1.5;color:#5c5c62">The maker's own brand story, in Spanish, first person. All content is measured against this voice.</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8e8e94;margin-top:8px">HUMAN</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:34px 1fr;gap:18px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#b4b2ad;padding-top:2px">02</div>
+          <div>
+            <div style="font-size:15.5px;font-weight:600;margin-bottom:4px">Built the site</div>
+            <div style="font-size:14px;line-height:1.5;color:#5c5c62">Static site on GitHub Pages: homepage, pieces, process. A crawlable site for the pipeline to read from.</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8e8e94;margin-top:8px">GITHUB PAGES · JEKYLL</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:200px 1fr;gap:56px;padding:32px 0;border-top:1px solid #e4e2dd">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.12em;color:#8e8e94;margin-bottom:6px">STAGE 02</div>
+        <div style="font-size:17px;font-weight:600;letter-spacing:-0.015em">Baseline</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:22px;max-width:46em">
+        <div style="display:grid;grid-template-columns:34px 1fr;gap:18px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#b4b2ad;padding-top:2px">03</div>
+          <div>
+            <div style="font-size:15.5px;font-weight:600;margin-bottom:4px">Ran an onboarding audit</div>
+            <div style="font-size:14px;line-height:1.5;color:#5c5c62">Baseline mention and citation rate against one competitor, recorded before any content was generated. Held as a benchmark, not for content drafts.</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8e8e94;margin-top:8px">AIROPS</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:200px 1fr;gap:56px;padding:32px 0;border-top:1px solid #e4e2dd">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.12em;color:#4c5f8f;margin-bottom:6px">STAGE 03</div>
+        <div style="font-size:17px;font-weight:600;letter-spacing:-0.015em">Generate, grounded</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:22px;max-width:46em">
+        <div style="display:grid;grid-template-columns:34px 1fr;gap:18px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#b4b2ad;padding-top:2px">04</div>
+          <div>
+            <div style="font-size:15.5px;font-weight:600;margin-bottom:4px">Generated the FAQ from the live site</div>
+            <div style="font-size:14px;line-height:1.5;color:#5c5c62">A Quill agent drafted the FAQ grounded in the site's own content. On the first attempt, before the site was live, it reported that it had no content to draw from rather than hallucinate — the grounding worked as designed.</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8e8e94;margin-top:8px">AIROPS QUILL</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:34px 1fr;gap:18px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#b4b2ad;padding-top:2px">05</div>
+          <div>
+            <div style="font-size:15.5px;font-weight:600;margin-bottom:4px">Added structured data</div>
+            <div style="font-size:14px;line-height:1.5;color:#5c5c62">FAQPage JSON-LD on the FAQ page, so answer engines can cite it as structured content.</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8e8e94;margin-top:8px">SCHEMA.ORG JSON-LD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:200px 1fr;gap:56px;padding:32px 0;border-top:1px solid #e4e2dd;background:#f3f4f8">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.12em;color:#4c5f8f;margin-bottom:6px">GOVERNANCE</div>
+        <div style="font-size:17px;font-weight:600;letter-spacing:-0.015em">Set the voice</div>
+        <div style="font-size:13px;line-height:1.45;color:#5c5c62;margin-top:8px">The layer that makes the rest repeatable.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:22px;max-width:46em">
+        <div style="display:grid;grid-template-columns:34px 1fr;gap:18px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#a3aabd;padding-top:2px">06</div>
+          <div>
+            <div style="font-size:15.5px;font-weight:600;margin-bottom:4px">Wrote the editorial guidelines</div>
+            <div style="font-size:14px;line-height:1.5;color:#3c3c42">I edited the LLM draft against my own voice. Six rules, derived from my corrections: cut redundant adverbs, avoid technical language, match register to context, keep opposing pairs parallel, present tense for facts still true, keep the humbling tone.</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8e8e94;margin-top:8px">CLAUDE · HUMAN CORRECTION</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:34px 1fr;gap:18px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#a3aabd;padding-top:2px">07</div>
+          <div>
+            <div style="font-size:15.5px;font-weight:600;margin-bottom:4px">Loaded them into the brand kit</div>
+            <div style="font-size:14px;line-height:1.5;color:#3c3c42">Stored in the Voice &amp; Tone so generated text reads the same rules.</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8e8e94;margin-top:8px">AIROPS BRAND KIT</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:200px 1fr;gap:56px;padding:32px 0;border-top:1px solid #e4e2dd">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.12em;color:#4c5f8f;margin-bottom:6px">STAGE 04</div>
+        <div style="font-size:17px;font-weight:600;letter-spacing:-0.015em">Distribute</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:22px;max-width:46em">
+        <div style="display:grid;grid-template-columns:34px 1fr;gap:18px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#b4b2ad;padding-top:2px">08</div>
+          <div>
+            <div style="font-size:15.5px;font-weight:600;margin-bottom:4px">Repurposed the content</div>
+            <div style="font-size:14px;line-height:1.5;color:#5c5c62">Site content repuporsed as a LinkedIn post and an Instagram caption, generated against the stored voice.</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8e8e94;margin-top:8px">AIROPS QUILL</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:34px 1fr;gap:18px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#b4b2ad;padding-top:2px">09</div>
+          <div>
+            <div style="font-size:15.5px;font-weight:600;margin-bottom:4px">Edited the draft against the guidelines</div>
+            <div style="font-size:14px;line-height:1.5;color:#5c5c62">Cut redundant adverbs, fixed a tense mismatch, corrected a mismatched word pair, adjusted capitalisation for register. Each edit logged as a before-and-after, making the rules</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8e8e94;margin-top:8px">HUMAN · FINAL PASS</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:34px 1fr;gap:18px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#b4b2ad;padding-top:2px">10</div>
+          <div>
+            <div style="font-size:15.5px;font-weight:600;margin-bottom:4px">Tested whether the brand kit actually works</div>
+            <div style="font-size:14px;line-height:1.5;color:#5c5c62">Generated a piece of care-instruction copy using only the stored voice. The governance layer is doing the work.</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8e8e94;margin-top:8px">AIROPS · EVALUATION</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:34px 1fr;gap:18px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#b4b2ad;padding-top:2px">11</div>
+          <div>
+            <div style="font-size:15.5px;font-weight:600;margin-bottom:4px">Published</div>
+            <div style="font-size:14px;line-height:1.5;color:#5c5c62">Live on GitHub Pages with the schema in the page source. Headings, links, images and metadata checked before release.</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8e8e94;margin-top:8px">GITHUB PAGES</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:200px 1fr;gap:56px;padding:32px 0;border-top:1px solid #e4e2dd">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.12em;color:#4c5f8f;margin-bottom:6px">STAGE 05</div>
+        <div style="font-size:17px;font-weight:600;letter-spacing:-0.015em">Orchestrate</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:22px;max-width:46em">
+        <div style="display:grid;grid-template-columns:34px 1fr;gap:18px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#b4b2ad;padding-top:2px">12</div>
+          <div>
+            <div style="font-size:15.5px;font-weight:600;margin-bottom:4px">Built the inbound capture</div>
+            <div style="font-size:14px;line-height:1.5;color:#5c5c62">A Tally form wired into a Make.com scenario. A router condition: anything over a hundred words goes to summarisation and lead classification first. Anything shorter goes straight to the weekly digest.</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8e8e94;margin-top:8px">TALLY · MAKE.COM</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:34px 1fr;gap:18px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#b4b2ad;padding-top:2px">13</div>
+          <div>
+            <div style="font-size:15.5px;font-weight:600;margin-bottom:4px">Hit a platform limit</div>
+            <div style="font-size:14px;line-height:1.5;color:#5c5c62">The classification step ran as a published AirOps workflow called over its webhook API. Routing, payload structure and authentication all tested correctly; execution was refused because external API calls need a paid tier, confirmed by the API's error.</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8e8e94;margin-top:8px">AIROPS WEBHOOK API</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:34px 1fr;gap:18px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#b4b2ad;padding-top:2px">14</div>
+          <div>
+            <div style="font-size:15.5px;font-weight:600;margin-bottom:4px">Rebuilt it on free tier</div>
+            <div style="font-size:14px;line-height:1.5;color:#5c5c62">Same triage logic, moved off the paid API: submissions land in a Google Sheet, an AirOps Grid runs the classification per row, and a weekly digest reads the enriched sheet. In progress.</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8e8e94;margin-top:8px">SHEETS · AIROPS GRID · MAKE.COM</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section style="padding:80px 0 0">
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8e8e94;margin-bottom:8px">03 / Constraint</div>
+  <h2 style="margin:0 0 6px;font-size:30px;line-height:1.15;letter-spacing:-0.02em;font-weight:600">One route closed, so the logic moved</h2>
+  <p style="margin:0 0 36px;font-size:16px;color:#5c5c62;max-width:40em;text-wrap:pretty">I needed a subscription. The triage logic was not the problem; where it executed was. So it moved.</p>
+
+  <div style="display:grid;grid-template-columns:1fr 40px 1fr;align-items:stretch;gap:0">
+    <div style="background:#ffffff;border:1px solid #e4e2dd;padding:28px 30px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+        <div style="width:7px;height:7px;background:#8f5a45"></div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.12em;color:#8f5a45">ATTEMPTED · BLOCKED</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#3c3c42">
+        <div style="padding:9px 0;border-bottom:1px dashed #e4e2dd">Tally form</div>
+        <div style="padding:9px 0;border-bottom:1px dashed #e4e2dd">Make.com router — length split</div>
+        <div style="padding:9px 0;border-bottom:1px dashed #e4e2dd">HTTP module → AirOps webhook</div>
+        <div style="padding:9px 0;color:#8f5a45">✕ external API requires paid tier</div>
+      </div>
+      <div style="margin-top:18px;padding-top:16px;border-top:1px solid #e4e2dd;font-size:13.5px;line-height:1.5;color:#5c5c62;text-wrap:pretty">The workflow passed the test. There were no bugs. I needed a subscription.&nbsp;</div>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#b4b2ad">→</div>
+
+    <div style="background:#ffffff;border:1px solid #4c5f8f;padding:28px 30px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+        <div style="width:7px;height:7px;background:#4c5f8f"></div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.12em;color:#4c5f8f">REDESIGNED · SAME LOGIC</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#3c3c42">
+        <div style="padding:9px 0;border-bottom:1px dashed #e4e2dd">Tally form</div>
+        <div style="padding:9px 0;border-bottom:1px dashed #e4e2dd">Make.com → Google Sheets</div>
+        <div style="padding:9px 0;border-bottom:1px dashed #e4e2dd">AirOps Grid — classify per row</div>
+        <div style="padding:9px 0;color:#4c5f8f">✓ weekly digest from enriched sheet</div>
+      </div>
+      <div style="margin-top:18px;padding-top:16px;border-top:1px solid #e4e2dd;font-size:13.5px;line-height:1.5;color:#5c5c62;text-wrap:pretty">The workaround. Batch rather than per-event, it's a tradeoff — and the right one for weekly inbound volume.</div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:80px 0 0">
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8e8e94;margin-bottom:8px">04 / Artefacts</div>
+  <h2 style="margin:0 0 36px;font-size:30px;line-height:1.15;letter-spacing:-0.02em;font-weight:600">What it looks like in the tools</h2>
+  <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px">
+    <div style="min-width:0">
+      <div style="border:1px solid #e4e2dd;background:#ffffff;padding:10px">
+        <img src="photos/brand-kit.jpg" alt="AirOps Brand Kit — Voice &amp; Tone field showing the editorial guidelines" style="width:100%;height:auto;display:block">
+      </div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8e8e94;margin-top:12px">FIG. 01 — BRAND KIT, VOICE &amp; TONE</div>
+      <div style="font-size:13.5px;line-height:1.5;color:#5c5c62;margin-top:6px;max-width:30em">The styleguide as it sits in the platform. Steps 04, 08 and 10 read from this field.</div>
+    </div>
+    <div style="min-width:0">
+      <div style="border:1px solid #e4e2dd;background:#ffffff;padding:10px">
+        <img src="photos/make-scenario.jpg" alt="Make.com scenario showing Tally, Router, and the HTTP module blocked by AirOps's paid-tier API restriction" style="width:100%;height:auto;display:block">
+      </div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8e8e94;margin-top:12px">FIG. 02 — THE ORCHESTRATION</div>
+      <div style="font-size:13.5px;line-height:1.5;color:#5c5c62;margin-top:6px;max-width:30em">Router, branches and the classification step, with the tier error that redirected the design.</div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<footer style="margin-top:88px;padding-top:28px;border-top:1px solid #16161a;display:grid;grid-template-columns:1fr 300px;gap:56px;align-items:start">
+  <div style="font-size:16px;line-height:1.55;color:#3c3c42;max-width:34em;text-wrap:pretty">The pipeline runs on a pottery studio, but nothing is specific to pottery. Swap the content, keep the architecture: grounded generation, one governance layer, a human editor, and orchestration.</div>
+  <div style="display:flex;flex-direction:column;gap:9px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#5c5c62">
+    <a href="https://martamani.github.io/pottery-ai-content-pipeline/">Live site ↗</a>
+    <a href="https://github.com/martamani/pottery-ai-content-pipeline">Repository ↗</a>
+    
+  </div>
+</footer>
+
+</div>
+</div>
+
+
+
+
+
+</body></html>
