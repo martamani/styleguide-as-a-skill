@@ -2,7 +2,7 @@
 
 **Goal:** Build a Claude Skill — a plain-text file that teaches the AI my voice — so it can write pottery-shop content that sounds like me.
 
-**The problem:** My last project [Translation styleguide judge](https://github.com/martamani/translation-styleguide-judge)) checked *translations* against a styleguide — two languages, judging text that already existed. That's a hard problem, and it pulled me into Python, loops, and databases. I don't code.
+**The problem:** My last project [Translation styleguide judge](https://github.com/martamani/translation-styleguide-judge) checked *translations* against a styleguide — two languages, judging text that already existed. That's a hard problem, and it pulled me into Python, loops, and databases. I don't code.
 
 **The reframe:** A styleguide isn't something you check after the fact — it's something you write *with*. As a writer, I follow a styleguide while drafting, and I add to it as I go; I don't finish a piece and then compare it against the rules. A styleguide isn't "personal" — it's how a whole team of writers ends up sounding like one voice. This project mirrors how a styleguide is actually used: one language, written *with* the guide, growing rule by rule, meant to keep everyone — human or AI — writing in the same voice.
 
