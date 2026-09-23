@@ -1,4 +1,8 @@
 ---
+title: "Alondra Cup: The Beauty of Imperfection"
+date: 2026-09-10
+layout: post
+---
 canonical: https://martamani.github.io/pottery-ai-content-pipeline/blog-alondra-cup.html
 meta-description: From source text to a working automation — an AI content pipeline, built and debugged, end to end
 meta-generator: Jekyll v3.10.0
