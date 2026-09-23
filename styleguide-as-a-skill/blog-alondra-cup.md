@@ -2,34 +2,8 @@
 title: "Alondra Cup: The Beauty of Imperfection"
 date: 2026-09-10
 layout: post
+description: "A small wheel-thrown cup, and what freehand asymmetry means for how a piece gets made."
 ---
-canonical: https://martamani.github.io/pottery-ai-content-pipeline/blog-alondra-cup.html
-meta-description: From source text to a working automation — an AI content pipeline, built and debugged, end to end
-meta-generator: Jekyll v3.10.0
-meta-og:description: From source text to a working automation — an AI content pipeline, built and debugged, end to end
-meta-og:locale: en_US
-meta-og:site_name: pottery-ai-content-pipeline
-meta-og:title: The Beauty of Imperfection
-meta-og:type: website
-meta-og:url: https://martamani.github.io/pottery-ai-content-pipeline/blog-alondra-cup.html
-meta-twitter:card: summary
-meta-twitter:title: The Beauty of Imperfection
-meta-viewport: width=device-width, initial-scale=1
-title: The Beauty of Imperfection | pottery-ai-content-pipeline
----
-
-# [pottery-ai-content-pipeline](https://martamani.github.io/pottery-ai-content-pipeline/)
-
-From source text to a working automation — an AI content pipeline, built and debugged, end to end
-
-[View the Project on GitHub martamani/pottery-ai-content-pipeline](https://github.com/martamani/pottery-ai-content-pipeline)
-
-<div style="margin: 1.5em 0;">
-  <button id="lang-en" onclick="showLang('en')" style="padding: 6px 14px; margin-right: 8px; cursor: pointer;">EN</button>
-  <button id="lang-es" onclick="showLang('es')" style="padding: 6px 14px; cursor: pointer;">ES</button>
-</div>
-
-<div id="blog-en" markdown="1">
 
 # The Beauty of Imperfection
 
