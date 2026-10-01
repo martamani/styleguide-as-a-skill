@@ -42,7 +42,6 @@ The agent hands the reviewed text over to me for editing. When I edit it, the ag
 - **[Humanizer](https://github.com/blader/humanizer)** — the format: numbered rules with before/after examples.
 - **[Grill Me](https://github.com/mattpocock/skills/blob/main/docs/productivity/grill-me.md)** by Matt Pocock — the method: an interview, one question at a time, to surface rules I knew but had never written down.
 - **Andrew Ng's agentic AI course** and **João Moura's course on multi-agent systems with CrewAI**, both on [DeepLearning.AI](https://www.deeplearning.ai/) — where both projects started.
-- **["I am just a text file"](https://ruben.substack.com/p/i-am-just-a-text-file)** by Ruben Hassid — a similar idea: capturing a writing voice in one file.
 - **[Translation styleguide judge](https://github.com/martamani/translation-styleguide-judge)** — my first project, and the problem this one answers.
 - **Claude Code** — the agent, the subagent and the skill run there.
 
