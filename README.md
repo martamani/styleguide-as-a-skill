@@ -31,6 +31,7 @@ The agent hands the reviewed text over to me for editing. When I edit it, the ag
 
 **The deeper realization:** the first project structured language as data — rules, JSON, validation — because that's how software is built. But this problem doesn't need that. AI's real strength is understanding natural language directly. The styleguide just needed to be written the way a person would explain it to another person: the other person is AI, so it needs a lot of examples. A person should be able to understand it, but it has to be *written for AI*, clearly, with examples — not encoded as a schema.
 
+**On scale:** at this size — one voice, one small file — there's no bottleneck. If the guide grew to hundreds of rules or several writers, the limit would be the model reliably reading a long document, not a lack of structure — and the fix would still be organizing the language better, not converting it back into data.
 ---
 
 ## Further reading
@@ -50,4 +51,4 @@ Koh et al. (2026, LinkedIn). An automated prompt-tuning method that records reje
 **[A Survey on the Memory Mechanism of Large Language Model-based Agents](https://dl.acm.org/doi/10.1145/3748302)**
 An overview of how AI agents store and use memory, for readers who want the wider field.
 
-**On scale:** at this size — one voice, one small file — there's no bottleneck. If the guide grew to hundreds of rules or several writers, the limit would be the model reliably reading a long document, not a lack of structure — and the fix would still be organizing the language better, not converting it back into data.
+
