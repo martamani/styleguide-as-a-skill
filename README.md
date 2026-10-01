@@ -31,4 +31,23 @@ The agent hands the reviewed text over to me for editing. When I edit it, the ag
 
 **The deeper realization:** the first project structured language as data — rules, JSON, validation — because that's how software is built. But this problem doesn't need that. AI's real strength is understanding natural language directly. The styleguide just needed to be written the way a person would explain it to another person: the other person is AI, so it needs a lot of examples. A person should be able to understand it, but it has to be *written for AI*, clearly, with examples — not encoded as a schema.
 
+---
+
+## Further reading
+
+**[When Does Reasoning Help in Machine Translation? A Hierarchical Analysis of LRM Reasoning Traces](https://arxiv.org/abs/2609.21247)**
+Liu, Luo, Briakou and Cherry (EMNLP 2026). Longer reasoning does not reliably produce better translations; how the reasoning is guided matters more than how long it is. Related to the first project, which judged translations.
+
+**[Reflexion: Language Agents with Verbal Reinforcement Learning](https://arxiv.org/abs/2303.11366)**
+Shinn et al. (2023). After a failure, the agent writes a short lesson in plain language, stores it, and reads it before trying again. Memory kept as sentences, not as data.
+
+**[AutoGuide: Automated Generation and Selection of Context-Aware Guidelines for Large Language Model Agents](https://arxiv.org/abs/2403.08978)**
+Fu et al. (NeurIPS 2024). Turns an agent's past attempts into short, plain-language guidelines that say when they apply. A different task (web navigation), but a similar idea: rules learned from experience, written in natural language.
+
+**[Contrastive Reflection for Iterative Prompt Optimization](https://arxiv.org/abs/2606.30840)**
+Koh et al. (2026, LinkedIn). An automated prompt-tuning method that records rejected edits so the system does not repeat them. A different task, and an iterative loop, but close to the idea behind "Rejected ideas."
+
+**[A Survey on the Memory Mechanism of Large Language Model-based Agents](https://dl.acm.org/doi/10.1145/3748302)**
+An overview of how AI agents store and use memory, for readers who want the wider field.
+
 **On scale:** at this size — one voice, one small file — there's no bottleneck. If the guide grew to hundreds of rules or several writers, the limit would be the model reliably reading a long document, not a lack of structure — and the fix would still be organizing the language better, not converting it back into data.
