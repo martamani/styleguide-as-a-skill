@@ -25,7 +25,7 @@ The agent hands the reviewed text over to me for editing. When I edit it, the ag
 
 **Why a reviewer, not a loop:** we do not need a loop, we need a second reader. A loop is the same pair of eyes on the same text: it misses what it missed the first time, and each pass tends to over-edit. A reviewer that did not write the draft sees what the writer cannot. The first project needed loops; this one needs a second reader.
 
-**What the reviewer caught:** in the first test — a blog post about drawing the steps for a bowl with curved walls — the reviewer made six changes. Five of them were not about voice. They were details that sounded plausible but that I never gave: a pencil, "a little," "straight down." The skill already said not to invent details, and the writer still did, because an invented detail doesn't look wrong from the inside. So the thesis needs one correction: without cross-language mapping, voice is not the only thing left to verify. There is also **fidelity to what I actually said**. The difference is that the two no longer tangle. Each change comes with its own reason, so I can see which one broke.
+**What the reviewer caught:**: in the first test — a blog post about drawing the steps for a bowl with curved walls — the reviewer made six changes. All six cut details that sounded plausible but that I never gave: a pencil, “a little,” “straight down.” Two of them also broke a voice rule.
 
 ---
 
